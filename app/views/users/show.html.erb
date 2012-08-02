@@ -1,0 +1,31 @@
+<% title @user.first_name + " " + (!@user.nick_name.blank? ? "(#{@user.nick_name}) " : "") + @user.last_name %>
+<% subtitle @user.login %>
+
+<div class="row">  
+  <dl id="user_info" class="dl-horizontal span4">
+    <div class="well">
+    <dt>Login</dt>
+    <dd><%= @user.login %></dd>
+    
+    <dt>First Name</dt>
+    <dd><%= @user.first_name %></dd>
+    
+    <dt>Last Name</dt>
+    <dd><%= @user.last_name %></dd>
+    
+    <dt>Nickname</dt>
+    <dd><%= !@user.nick_name.blank? ? @user.nick_name : "(none)" %></dd>
+    
+    <dt>Role</dt>
+    <dd><%= @user.role %></dd>
+    </div>
+  </dl>
+</div>
+
+<% if @current_user.role == "admin" %>
+  <p>
+    <%= link_to "Edit", edit_user_path %> |
+    <%= link_to "View All", users_path %> |
+    <%= link_to "Destroy", @user, :confirm => 'This will permanently delete the Object from your database and could have unintended consequences. You might break all the things. Are you sure?', :method => :delete %>
+  </p>
+<% end %>

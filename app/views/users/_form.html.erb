@@ -1,0 +1,10 @@
+<%= simple_form_for @user, :html => { :class => "form-horizontal" } do |f| %>
+  <%= f.error_notification %>
+    <%= f.input :login %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :nick_name %>
+    <%= f.input :role %>
+
+    <%= f.button :submit %>
+<% end %>
